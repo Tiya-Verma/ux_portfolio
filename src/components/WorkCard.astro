@@ -1,0 +1,48 @@
+---
+interface Props {
+  company: string;
+  year: string;
+  href?: string;
+  bg: string;
+  /** optional inner content (logo / artwork) — html string */
+  inner?: string;
+}
+
+const { company, year, href = "#", bg, inner } = Astro.props;
+---
+
+<a
+  href={href}
+  class="group block relative aspect-[16/9] rounded-2xl overflow-hidden ring-1 ring-rule/70"
+  style={`background:${bg}`}
+>
+  <!-- inner artwork (gradient + content) -->
+  <div class="absolute inset-0 flex items-center justify-center">
+    {
+      inner && (
+        <div
+          class="transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          set:html={inner}
+        />
+      )
+    }
+  </div>
+
+  <!-- subtle film grain / vignette -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-[0.06] mix-blend-overlay"
+    style="background-image: radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px); background-size: 3px 3px;"
+  >
+  </div>
+
+  <!-- meta pill bottom-left -->
+  <div class="absolute left-4 bottom-4 md:left-5 md:bottom-5">
+    <div
+      class="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur rounded-full px-3.5 py-1.5 shadow-sm ring-1 ring-black/5"
+    >
+      <span class="text-[14px] font-medium text-ink">{company}</span>
+      <span class="text-soft">·</span>
+      <span class="text-[14px] text-muted tabular-nums">{year}</span>
+    </div>
+  </div>
+</a>

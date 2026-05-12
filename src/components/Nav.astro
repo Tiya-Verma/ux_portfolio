@@ -1,0 +1,40 @@
+---
+const path = Astro.url.pathname;
+const isHome = path === "/" || path === "";
+const isAbout = path.startsWith("/about");
+---
+
+<header class="px-6 md:px-10 pt-7 md:pt-9">
+  <nav class="flex items-center justify-between max-w-2xl mx-auto">
+    <a
+      href="/"
+      class="text-[17px] font-medium text-ink tracking-tightish hover:text-hover transition-colors"
+    >
+      tiya liu <span class="accent">✿</span>
+    </a>
+    <ul class="flex items-center gap-6 text-[15px]">
+      <li>
+        <a href="/" class={`nav-link ${isHome ? "is-active" : ""}`}>work</a>
+      </li>
+      <li>
+        <a href="/about" class={`nav-link ${isAbout ? "is-active" : ""}`}
+          >about</a
+        >
+      </li>
+      <li>
+        <a href="#" class="nav-link">resume</a>
+      </li>
+      <li>
+        <a
+          href="mailto:hello@example.com"
+          class="group/email font-medium text-muted hover:text-hover transition-colors"
+        >
+          email<span
+            class="inline-block ml-0 group-hover/email:ml-1.5 opacity-0 group-hover/email:opacity-100 transition-all duration-200 ease-out"
+            aria-hidden="true">↗</span
+          >
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>

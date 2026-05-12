@@ -1,0 +1,216 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageTabs from "../components/PageTabs.astro";
+import WorkCard from "../components/WorkCard.astro";
+
+// inline SVGs used as artwork inside each card
+const appleLogo = `
+  <div style="width: 240px; height: 240px; border-radius: 9999px; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.95), rgba(255,255,255,0.4) 60%, rgba(255,255,255,0.1) 100%); display:flex; align-items:center; justify-content:center; box-shadow: 0 30px 60px -20px rgba(80,70,120,0.35);">
+    <svg width="64" height="80" viewBox="0 0 170 200" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M130.7 105c-.2-21.6 17.6-32 18.4-32.5-10-14.6-25.6-16.7-31.1-16.9-13.2-1.4-25.8 7.8-32.5 7.8-6.8 0-17-7.6-28-7.4-14.4.2-27.7 8.4-35.1 21.3-15 26-3.8 64.4 10.7 85.5 7.2 10.3 15.7 21.9 26.8 21.5 10.7-.4 14.8-7 27.8-7s16.7 7 28 6.8c11.6-.2 18.9-10.5 26-20.8 8.2-12 11.5-23.6 11.7-24.2-.3-.1-22.5-8.6-22.7-34.1zM109.4 41.5c5.9-7.2 9.9-17.1 8.8-27-8.5.4-18.8 5.7-24.9 12.8-5.5 6.4-10.3 16.6-9 26.3 9.5.7 19.2-4.9 25.1-12.1z"/>
+    </svg>
+  </div>
+`;
+
+const robloxArt = `
+  <div style="position:absolute;inset:0;background:
+    linear-gradient(140deg, rgba(76,107,232,0.0) 0%, rgba(15,28,90,0.55) 60%),
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(25deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 26px);"></div>
+  <div style="position:relative; display:flex; align-items:center; gap:18px;">
+    <div style="width:120px; height:120px; background:#3b5cff; border-radius:18px; transform: rotate(-8deg) skewY(-6deg); box-shadow: 0 30px 60px -20px rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center;">
+      <div style="width:32px; height:32px; background:#0a1a5e; border-radius:6px;"></div>
+    </div>
+  </div>
+`;
+
+const adobeArt = `
+  <div style="position:absolute; inset:-10%;
+    background:
+      radial-gradient(circle at 12% 38%, #ff4d2a 0%, rgba(255,77,42,0) 38%),
+      radial-gradient(circle at 70% 28%, #ffc94d 0%, rgba(255,201,77,0) 36%),
+      radial-gradient(circle at 78% 78%, #ec1cd6 0%, rgba(236,28,214,0) 38%),
+      radial-gradient(circle at 22% 90%, #1e6dff 0%, rgba(30,109,255,0) 40%),
+      linear-gradient(180deg, #f3c0d0, #f0a3c1);
+    filter: blur(6px);"></div>
+  <div style="position:relative; display:flex; align-items:center; justify-content:center;">
+    <svg width="80" height="74" viewBox="0 0 240 220" xmlns="http://www.w3.org/2000/svg">
+      <path fill="white" d="M150 0h90v220L150 0zM90 0H0v220L90 0zm30 80l57 140h-37l-17-43H85l28-97z"/>
+    </svg>
+  </div>
+`;
+
+const nasaArt = `
+  <div style="position:absolute;inset:0;background:
+    radial-gradient(ellipse at 30% 40%, rgba(180,200,255,0.25), transparent 60%),
+    radial-gradient(ellipse at 70% 70%, rgba(80,90,140,0.4), transparent 65%),
+    linear-gradient(180deg, #1a2746 0%, #0b1426 100%);"></div>
+  <div style="position:absolute;inset:0;background-image: radial-gradient(rgba(255,255,255,0.55) 1px, transparent 1px); background-size: 4px 4px; opacity: 0.18;"></div>
+  <div style="position:relative; color:white; font-family:'Manrope',sans-serif; text-align:center; letter-spacing:0.15em;">
+    <div style="font-size:42px; font-weight:700; line-height:1;">NASA</div>
+    <div style="margin-top:6px; font-size:11px; opacity:0.75;">JPL · DESIGN LAB</div>
+  </div>
+`;
+
+const work = [
+  {
+    company: "Apple",
+    year: "2025",
+    bg: "linear-gradient(135deg, #efeaf3 0%, #d8d3e3 55%, #c9c3d8 100%)",
+    inner: appleLogo,
+  },
+  {
+    company: "Roblox",
+    year: "2024",
+    bg: "linear-gradient(160deg, #2b3a8a 0%, #0a1740 100%)",
+    inner: robloxArt,
+  },
+  {
+    company: "Adobe",
+    year: "2023",
+    bg: "linear-gradient(135deg, #ffd0c5 0%, #ffb3cf 50%, #cfb6f5 100%)",
+    inner: adobeArt,
+  },
+  {
+    company: "NASA JPL",
+    year: "2023–24",
+    bg: "#0b1426",
+    inner: nasaArt,
+  },
+];
+
+const side = [
+  { title: "Polaroid Studio", badge: "Try It Out!", href: "#" },
+  { title: "Screentime Receipt", href: "#" },
+  { title: "Digital Sketchbook", href: "#" },
+  { title: "Personal Library", href: "#" },
+];
+---
+
+<Layout title="tiya verma — product designer">
+  <main class="px-6 md:px-12">
+    <div class="max-w-6xl mx-auto">
+      <!-- header -->
+      <header class="pt-10 md:pt-14">
+        <h1
+          class="text-[64px] md:text-[88px] leading-[0.95] font-semibold tracking-[-0.03em] text-ink"
+        >
+          tiya verma
+        </h1>
+
+        <div
+          class="mt-6 max-w-3xl text-[19px] md:text-[20px] leading-[1.55] text-soft"
+        >
+          <p>
+            Designing useful products to spark moments of delight &amp; human
+            connection.
+          </p>
+          <p class="mt-1 flex flex-wrap items-center gap-x-1.5">
+            <span>Previously at</span>
+            <svg
+              aria-label="Apple"
+              role="img"
+              width="14"
+              height="17"
+              viewBox="0 0 170 200"
+              fill="currentColor"
+              class="inline-block text-[#374151] -mt-0.5"
+              ><path
+                d="M130.7 105c-.2-21.6 17.6-32 18.4-32.5-10-14.6-25.6-16.7-31.1-16.9-13.2-1.4-25.8 7.8-32.5 7.8-6.8 0-17-7.6-28-7.4-14.4.2-27.7 8.4-35.1 21.3-15 26-3.8 64.4 10.7 85.5 7.2 10.3 15.7 21.9 26.8 21.5 10.7-.4 14.8-7 27.8-7s16.7 7 28 6.8c11.6-.2 18.9-10.5 26-20.8 8.2-12 11.5-23.6 11.7-24.2-.3-.1-22.5-8.6-22.7-34.1zM109.4 41.5c5.9-7.2 9.9-17.1 8.8-27-8.5.4-18.8 5.7-24.9 12.8-5.5 6.4-10.3 16.6-9 26.3 9.5.7 19.2-4.9 25.1-12.1z"
+              ></path></svg
+            >
+            <span>,</span>
+            <span class="text-[#374151] font-medium">Roblox</span>
+            <span>, &amp;</span>
+            <span class="text-[#374151] font-medium">NASA</span>
+            <span>.</span>
+            <span
+              class="inline-block w-2 h-2 rounded-full bg-emerald-500 ml-1 align-middle"
+              aria-label="open to work"></span>
+          </p>
+        </div>
+      </header>
+
+      <!-- tabs + hairline -->
+      <div class="mt-10 md:mt-12 pb-3">
+        <PageTabs />
+      </div>
+      <div class="border-t border-rule"></div>
+
+      <!-- 2-col project grid -->
+      <section class="pt-7 md:pt-9 pb-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+          {work.map((w) => <WorkCard {...w} />)}
+        </div>
+      </section>
+
+      <!-- side projects -->
+      <section class="pt-10 pb-12">
+        <h2
+          class="text-[14px] uppercase tracking-[0.14em] font-medium text-soft mb-5"
+        >
+          Side projects
+        </h2>
+        <ul class="space-y-3">
+          {
+            side.map((s) => (
+              <li>
+                <a
+                  href={s.href}
+                  class="group inline-flex items-center gap-2 text-[18px] font-medium text-[#374151] hover:text-hover transition-colors"
+                >
+                  {s.title}
+                  {s.badge && (
+                    <span class="ml-1 inline-flex items-center rounded-full bg-emerald-50 text-accent text-[12px] font-medium px-2 py-0.5">
+                      {s.badge}
+                    </span>
+                  )}
+                  <span
+                    class="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-accent"
+                    aria-hidden="true"
+                  >
+                    ↗
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <!-- footer -->
+      <footer class="pt-12 pb-14 border-t border-rule">
+        <h2
+          class="text-[32px] md:text-[40px] font-semibold tracking-tightish text-ink leading-[1.1]"
+        >
+          Let's work together!
+        </h2>
+        <a
+          href="mailto:hello@example.com"
+          class="mt-3 inline-flex items-center gap-1.5 text-[20px] md:text-[22px] font-medium text-accent hover:text-hover transition-colors"
+        >
+          hello@example.com
+          <span aria-hidden="true">↗</span>
+        </a>
+
+        <div class="mt-10 flex flex-wrap items-center justify-between gap-4">
+          <ul
+            class="flex items-center gap-6 text-[13px] tracking-[0.16em] text-soft"
+          >
+            <li>
+              <a href="/" class="hover:text-hover transition-colors">WORK</a>
+            </li>
+            <li>
+              <a href="/about" class="hover:text-hover transition-colors"
+                >ABOUT</a
+              >
+            </li>
+          </ul>
+          <div class="text-[12px] text-ghost">
+            Built with Astro &amp; quiet afternoons.
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+</Layout>

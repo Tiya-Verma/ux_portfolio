@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-canvas text-body font-sans antialiased;
+    letter-spacing: 0.005em;
+  }
+  ::selection {
+    background: #10b981;
+    color: #ffffff;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-rule px-3 py-1 text-[13px] font-medium text-body bg-white;
+  }
+  .nav-link {
+    @apply font-medium text-muted hover:text-hover transition-colors duration-200;
+  }
+  .nav-link.is-active {
+    @apply text-body;
+  }
+  .accent {
+    @apply text-accent;
+  }
+  .pop-hover {
+    @apply transition-colors duration-200 hover:text-hover;
+  }
+}

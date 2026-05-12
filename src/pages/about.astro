@@ -1,0 +1,190 @@
+---
+import Layout from "../layouts/Layout.astro";
+import AboutSidebar from "../components/AboutSidebar.astro";
+---
+
+<Layout title="about — tiya verma">
+  <div class="px-6 md:px-12 pt-10 md:pt-16 pb-16 md:pb-24">
+    <div
+      class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-12 lg:gap-20"
+    >
+      <!-- left: sidebar (sticky on desktop) -->
+      <div class="lg:sticky lg:top-12 self-start">
+        <AboutSidebar active="hi" />
+      </div>
+
+      <!-- right: content -->
+      <div class="max-w-2xl">
+        <section id="hi" class="pt-2 pb-14 scroll-mt-20">
+          <h2 class="text-[28px] md:text-[32px] font-semibold text-ink tracking-tightish">
+            Hi! <span class="text-hover">👋</span>
+          </h2>
+          <p class="mt-5 text-[17px] leading-[1.7] text-body">
+            I'm tiya — a product designer designing where beauty meets tactile
+            utility. I like to think of it as my
+            <span class="accent italic font-medium">ikigai</span>.
+          </p>
+          <p class="mt-4 text-[17px] leading-[1.7] text-body">
+            Outside of work I'm usually in secondhand bookstores, shooting slow
+            film, or coaxing bread doughs into not deflating. I keep a small
+            list of obsessions below — feel free to borrow any of them.
+          </p>
+        </section>
+
+        <section id="experience" class="border-t border-rule pt-10 pb-14 scroll-mt-20">
+          <h2 class="text-[24px] md:text-[26px] font-semibold text-ink tracking-tightish">
+            Experience
+          </h2>
+          <ol class="mt-6 space-y-6">
+            <li class="flex items-baseline justify-between gap-6">
+              <div>
+                <div class="text-[16px] font-medium text-ink">
+                  Product Designer ·
+                  <span class="text-muted font-normal">a thing</span>
+                </div>
+                <p class="mt-1 text-[14.5px] text-soft max-w-lg">
+                  Leading design for the calm-software platform. Onboarding,
+                  billing, and a notification system that doesn't scream.
+                </p>
+              </div>
+              <span class="text-[13px] text-ghost tabular-nums shrink-0">
+                2024 — now
+              </span>
+            </li>
+            <li class="flex items-baseline justify-between gap-6">
+              <div>
+                <div class="text-[16px] font-medium text-ink">
+                  Design Intern ·
+                  <span class="text-muted font-normal">another thing</span>
+                </div>
+                <p class="mt-1 text-[14.5px] text-soft max-w-lg">
+                  Shipped the new dashboard and a small motion library everyone
+                  secretly loves.
+                </p>
+              </div>
+              <span class="text-[13px] text-ghost tabular-nums shrink-0">
+                2023
+              </span>
+            </li>
+            <li class="flex items-baseline justify-between gap-6">
+              <div>
+                <div class="text-[16px] font-medium text-ink">
+                  UX Researcher ·
+                  <span class="text-muted font-normal">a third thing</span>
+                </div>
+                <p class="mt-1 text-[14.5px] text-soft max-w-lg">
+                  Wrote the kind of research reports people actually read on
+                  the bus.
+                </p>
+              </div>
+              <span class="text-[13px] text-ghost tabular-nums shrink-0">
+                2022
+              </span>
+            </li>
+          </ol>
+        </section>
+
+        <section id="community" class="border-t border-rule pt-10 pb-14 scroll-mt-20">
+          <h2 class="text-[24px] md:text-[26px] font-semibold text-ink tracking-tightish">
+            Community
+          </h2>
+          <ul class="mt-6 space-y-3 text-[15.5px] text-body">
+            <li>
+              <a href="#" class="pop-hover font-medium text-ink">Design Buddies</a>
+              <span class="text-soft"
+                >— monthly portfolio crits, mostly snacks.</span
+              >
+            </li>
+            <li>
+              <a href="#" class="pop-hover font-medium text-ink"
+                >Out of Office Hours</a
+              >
+              <span class="text-soft">— a small zine of design essays.</span>
+            </li>
+            <li>
+              <a href="#" class="pop-hover font-medium text-ink">slow software club</a>
+              <span class="text-soft"
+                >— making peaceful tools, one weekend at a time.</span
+              >
+            </li>
+          </ul>
+        </section>
+
+        <section id="philosophy" class="border-t border-rule pt-10 pb-14 scroll-mt-20">
+          <h2 class="text-[24px] md:text-[26px] font-semibold text-ink tracking-tightish">
+            Philosophy
+          </h2>
+          <p class="mt-6 text-[17px] leading-[1.7] text-body max-w-2xl">
+            I care about the small moments in software — the loading state
+            nobody asked for, the empty state that should have been a hug, the
+            error message written like a person. The best products feel less
+            like tools and more like a friend who's already done your laundry.
+          </p>
+          <ul class="mt-5 flex flex-wrap gap-2">
+            <li class="pill">design systems</li>
+            <li class="pill">0 → 1 product</li>
+            <li class="pill">interaction</li>
+            <li class="pill">research</li>
+            <li class="pill">writing</li>
+          </ul>
+        </section>
+
+        <section id="shelf" class="border-t border-rule pt-10 pb-14 scroll-mt-20">
+          <h2 class="text-[24px] md:text-[26px] font-semibold text-ink tracking-tightish">
+            Shelf
+          </h2>
+          <p class="mt-3 text-[15px] text-soft">Currently reading, watching, listening.</p>
+          <ul
+            class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 text-[15px] text-body"
+          >
+            <li><span class="text-soft">📖</span> The Design of Everyday Things — Don Norman</li>
+            <li><span class="text-soft">📖</span> Hyperbole and a Half — Allie Brosh</li>
+            <li><span class="text-soft">🎬</span> Past Lives</li>
+            <li><span class="text-soft">🎬</span> Perfect Days</li>
+            <li><span class="text-soft">🎧</span> Adrianne Lenker — Bright Future</li>
+            <li><span class="text-soft">🎧</span> Big Thief — anything</li>
+          </ul>
+        </section>
+
+        <section id="lore" class="border-t border-rule pt-10 pb-14 scroll-mt-20">
+          <h2 class="text-[24px] md:text-[26px] font-semibold text-ink tracking-tightish">
+            Lore
+          </h2>
+          <p class="mt-6 text-[17px] leading-[1.7] text-body max-w-2xl">
+            Some fun snippets from past lives: ran a tiny zine in high school,
+            briefly thought I'd be a botanist, can identify most birds in
+            ontario by their call (badly), and once made it to the second round
+            of a national poetry slam.
+          </p>
+          <ul class="mt-6 space-y-3 text-[15.5px] text-body">
+            <li class="border-l-2 border-accent pl-4">
+              "The details are not the details. They make the design."
+              <div class="mt-1 text-[13px] text-soft">— Charles Eames</div>
+            </li>
+            <li class="border-l-2 border-rule pl-4">
+              "Have nothing in your house that you do not know to be useful, or
+              believe to be beautiful."
+              <div class="mt-1 text-[13px] text-soft">— William Morris</div>
+            </li>
+          </ul>
+        </section>
+
+        <!-- contact -->
+        <section class="border-t border-rule pt-10">
+          <p class="text-[17px] text-muted">
+            Working on something cool?
+            <a
+              href="mailto:hello@example.com"
+              class="text-body font-medium pop-hover">Get in touch ↗</a
+            >
+          </p>
+          <ul class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-[13px] text-soft">
+            <li><a href="#" class="pop-hover">linkedin</a></li>
+            <li><a href="#" class="pop-hover">read.cv</a></li>
+            <li><a href="#" class="pop-hover">are.na</a></li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>
