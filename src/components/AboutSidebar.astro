@@ -3,61 +3,17 @@ interface Props {
   active?: string;
 }
 
-const path = Astro.url.pathname;
-const isWork = path === "/" || path === "";
-const isAbout = path.startsWith("/about");
 const { active = "hi" } = Astro.props;
 
 const sections = [
   { id: "hi", label: "Hi!" },
   { id: "experience", label: "Experience" },
   { id: "community", label: "Community" },
-  { id: "philosophy", label: "Philosophy" },
-  { id: "shelf", label: "Shelf" },
-  { id: "lore", label: "Lore" },
 ];
 ---
 
-<aside class="w-full max-w-[420px]">
-  <h1
-    class="text-[52px] md:text-[56px] leading-[1.05] font-semibold tracking-tightish text-ink"
-  >
-    tiya verma
-  </h1>
-  <p
-    class="mt-4 text-[26px] md:text-[28px] leading-[1.25] font-medium text-soft tracking-tightish"
-  >
-    Product, design, &lt;dev&gt;,<br />& everything in between.
-  </p>
-
-  <!-- page tabs -->
-  <nav class="mt-10 flex items-center gap-1.5 text-[18px] font-medium">
-    <a
-      href="/"
-      class={`px-4 py-2 rounded-full transition-colors duration-150 ${
-        isWork
-          ? "bg-[#eef0f3] text-ink"
-          : "text-soft hover:text-body"
-      }`}
-    >
-      Work
-    </a>
-    <a
-      href="/about"
-      class={`px-4 py-2 rounded-full transition-colors duration-150 ${
-        isAbout
-          ? "bg-[#eef0f3] text-ink"
-          : "text-soft hover:text-body"
-      }`}
-    >
-      About
-    </a>
-  </nav>
-
-  <hr class="mt-5 border-t border-rule" />
-
-  <!-- section nav -->
-  <ul class="mt-6 space-y-3.5 text-[19px] font-medium">
+<aside class="w-full">
+  <ul class="space-y-3.5 text-[19px] font-medium">
     {
       sections.map((s) => (
         <li>
@@ -79,7 +35,6 @@ const sections = [
 </aside>
 
 <script>
-  // Update the active section as the user scrolls.
   const links = document.querySelectorAll<HTMLAnchorElement>(
     "[data-section-link]"
   );

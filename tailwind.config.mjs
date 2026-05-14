@@ -5,7 +5,7 @@ export default {
     extend: {
       colors: {
         canvas: "#ffffff",
-        ink: "#111827",
+        ink: "#4b5563",
         body: "#374151",
         muted: "#6b7280",
         soft: "#9ca3af",
@@ -16,7 +16,6 @@ export default {
       },
       fontFamily: {
         sans: [
-          '"DM Sans"',
           '"Inter"',
           '"Helvetica Neue"',
           "Helvetica",
@@ -24,10 +23,10 @@ export default {
           "sans-serif",
         ],
         display: [
-          '"Manrope"',
-          '"DM Sans"',
           '"Inter"',
           '"Helvetica Neue"',
+          "Helvetica",
+          "Arial",
           "sans-serif",
         ],
       },

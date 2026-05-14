@@ -5,10 +5,34 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    min-height: 100%;
+    background-color: #ffffff;
+    background-image:
+      /* horizontal arm of the L — along the bottom, fading right */
+      radial-gradient(
+        ellipse 700px 200px at 0% 100%,
+        rgba(186, 219, 252, 0.25),
+        transparent 75%
+      ),
+      /* vertical arm of the L — up the left, fading top */
+      radial-gradient(
+        ellipse 240px 600px at 0% 100%,
+        rgba(186, 219, 252, 0.22),
+        transparent 75%
+      ),
+      /* tiny pastel yellow accent in the corner */
+      radial-gradient(
+        ellipse 300px 240px at 0% 100%,
+        rgba(254, 240, 138, 0.15),
+        transparent 70%
+      );
+    background-attachment: fixed;
+    background-repeat: no-repeat;
   }
   body {
-    @apply bg-canvas text-body font-sans antialiased;
+    @apply text-body font-sans antialiased;
     letter-spacing: 0.005em;
+    background: transparent;
   }
   ::selection {
     background: #10b981;
