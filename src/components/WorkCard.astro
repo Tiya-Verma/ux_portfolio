@@ -21,7 +21,7 @@ const { company, year, href = "#", bg, inner } = Astro.props;
     {
       inner && (
         <div
-          class="transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          class="relative w-full h-full flex items-center justify-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           set:html={inner}
         />
       )
